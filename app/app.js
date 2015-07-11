@@ -2,7 +2,10 @@
 'use strict';
 
 angular
-.module('InternetRadio', [])
+.module('InternetRadio', [
+	'InternetRadio.Player',
+	'InternetRadio.Library'
+])
 .config(appConfig)
 .run(appRun);
 
