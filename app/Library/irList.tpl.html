@@ -1,4 +1,6 @@
-<ul>
-	<li>{{stations.length}}</li>
-	<li ng-repeat="station in stations">{{station.title}}</li>
-</ul>
+<div class="radio-list">
+	<p>Select by: {{getFilter()}} Total: {{results.length}}</p>
+	<ul>
+		<li ng-repeat="station in stations | filter: getFilter() as results" ng-click="select(station)">{{station.title}}</li>
+	</ul>
+</div>

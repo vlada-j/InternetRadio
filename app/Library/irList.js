@@ -20,6 +20,12 @@ function irList(Library) {
 
 	function link(scope) {
 		scope.stations = Library.getAll();
+		scope.select = select;
+		scope.getFilter = function() { return Library.filter; }
+	}
+
+	function select(s) {
+		console.log('SELECT', s);
 	}
 }
 

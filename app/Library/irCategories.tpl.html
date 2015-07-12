@@ -1,4 +1,6 @@
-<ul>
-	<li>All</li>
-	<li ng-repeat="tag in tags">{{tag}}</li>
-</ul>
+<div class="radio-categoris">
+	<ul>
+		<li ng-click="select()">All</li>
+		<li ng-repeat="tag in tags" ng-click="select(tag)">{{tag}}</li>
+	</ul>
+</div>

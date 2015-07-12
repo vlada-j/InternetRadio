@@ -20,6 +20,12 @@ function irCategories(Library) {
 
 	function link(scope) {
 		scope.tags = Library.getGenres();
+		scope.select = select;
+	}
+
+	function select(s) {
+		Library.filter = s;
+		console.log('SELECT', s);
 	}
 }
 
