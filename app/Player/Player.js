@@ -16,6 +16,7 @@ angular
 .module ('InternetRadio.Player', [])
 .config (config)
 .run (run)
+.value('Player', {})
 .directive ('irPlayer', irPlayer);
 
 
@@ -30,8 +31,8 @@ function run() {}
 
 
 //--------------------------------------------------------------------------------------------------
-irPlayer.$inject = [];
-function irPlayer() {
+irPlayer.$inject = ['Player'];
+function irPlayer(Player) {
 
 	return {
 		scope: {},
@@ -43,30 +44,36 @@ function irPlayer() {
 
 
 	function link(scope, ele) {
-		var audio = ele.find('audio'),
-			paused;
+		var audio = ele.find('audio')[0],
+			vm = {};
 
-		paused = false;
-		scope.toggleClass = 'zxc';
-		scope.volume = audio[0].volume * 100;
-		scope.toggle = toggle;
-		scope.$watch('volume', function(n) {
-			audio[0].volume = n / 100;
+		scope.vm = vm;
+		vm.paused = false;
+		Player.setData = setData;
+		vm.selected = {};
+		vm.toggleClass = 'zxc';
+		vm.volume = audio.volume * 100;
+		vm.toggle = toggle;
+		scope.$watch('vm.volume', function(n) {
+			audio.volume = n / 100;
 		});
 
-		scope.title = 'zxc';
-		scope.tags = [];
-
 		function toggle() {
-			if (audio[0].paused) {
-				audio[0].play();
-				paused = false;
-				scope.toggleClass = 'pause-state';
+			if (audio.paused) {
+				audio.play();
+				vm.paused = false;
+				vm.toggleClass = 'pause-state';
 			} else {
-				audio[0].pause();
-				paused = true;
-				scope.toggleClass = 'play-state';
+				audio.pause();
+				vm.paused = true;
+				vm.toggleClass = 'play-state';
 			}
+		}
+
+		function setData(s) {
+			vm.selected = s || {};
+			audio.src = s.src;
+
 		}
 	}
 }

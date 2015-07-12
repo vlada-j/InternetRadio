@@ -12,7 +12,8 @@ function library($http) {
 	var url = 'data/data.json',
 		stations = [],
 		results = [],
-		genres = [];
+		genres = [],
+		selected = {};
 
 	loadData();
 
@@ -20,10 +21,11 @@ function library($http) {
 	// methods
 	return {
 		loadData:loadData,
-		zxc:function(){ Array.prototype.push.apply(results, stations); },
 		results:function(){ return results; },
 		getAll:function(){ return stations; },
-		getGenres:function(){ return genres; }
+		getGenres:function(){ return genres; },
+		selected:selected,
+		getSelected:function(){ return selected; }
 	};
 
 //--------------------------------------------------------------------------------------------------

@@ -25,7 +25,6 @@ function irCategories(Library) {
 
 	function select(s) {
 		Library.filter = s;
-		console.log('SELECT', s);
 	}
 }
 

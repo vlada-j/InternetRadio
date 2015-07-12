@@ -7,8 +7,8 @@ angular
 
 
 //--------------------------------------------------------------------------------------------------
-irList.$inject = ['Library'];
-function irList(Library) {
+irList.$inject = ['Library', 'Player'];
+function irList(Library, Player) {
 
 	return {
 		scope: {},
@@ -20,12 +20,8 @@ function irList(Library) {
 
 	function link(scope) {
 		scope.stations = Library.getAll();
-		scope.select = select;
+		scope.select = function(s) { Player.setData(s); };
 		scope.getFilter = function() { return Library.filter; }
-	}
-
-	function select(s) {
-		console.log('SELECT', s);
 	}
 }
 
