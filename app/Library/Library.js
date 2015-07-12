@@ -14,19 +14,11 @@
 
 angular
 .module ('InternetRadio.Library', [])
-.config (config)
-.run (run);
+.config (config);
 
 
 //--------------------------------------------------------------------------------------------------
 config.$inject = [];
 function config() {}
 
-
-//--------------------------------------------------------------------------------------------------
-run.$inject = ['Library'];
-function run(Library) {
-	window.L = Library;
-	//Library.loadData();
-}
 })();

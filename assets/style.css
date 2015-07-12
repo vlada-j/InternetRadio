@@ -1,6 +1,12 @@
 .radio-player {clear:both}
+.radio-player .radio-player-button {}
+.radio-player .pause-state {background-color:red}
+.radio-player .play-state {background-color:green}
 
-.radio-categoris {
+
+#Library {}
+
+.radio-categories {
 	float:left;
 	width:200px}
 

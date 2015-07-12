@@ -1,9 +1,13 @@
 <div class="radio-player">
-	<audio controls autoplay></audio>
+	<audio autoplay></audio>
+
 	<button class="radio-player-button {{vm.toggleClass}}" ng-click="vm.toggle()">||</button>
 	<input class="radio-player-volume" type="range" ng-model="vm.volume" min="0" max="100"/>
+
 	<header class="radio-player-title">{{vm.selected.title}}</header>
+
 	<p class="radio-player-tags">
-		<span class="tag" ng-repead="tag in vm.selected.tags">{{tag}}</span>
+		Tags:
+		<span class="tag" ng-repeat="tag in vm.selected.tags">{{tag}}</span>
 	</p>
 </div>

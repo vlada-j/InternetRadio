@@ -51,9 +51,11 @@ function irPlayer(Player) {
 		vm.paused = false;
 		Player.setData = setData;
 		vm.selected = {};
-		vm.toggleClass = 'zxc';
+		vm.toggleClass = 'pause-state';
 		vm.volume = audio.volume * 100;
 		vm.toggle = toggle;
+//		vm.getCurrentTime = function() { return audio.currentTime; };
+
 		scope.$watch('vm.volume', function(n) {
 			audio.volume = n / 100;
 		});
@@ -73,6 +75,7 @@ function irPlayer(Player) {
 		function setData(s) {
 			vm.selected = s || {};
 			audio.src = s.src;
+			toggle();
 
 		}
 	}
