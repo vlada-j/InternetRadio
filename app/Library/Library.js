@@ -24,7 +24,9 @@ function config() {}
 
 
 //--------------------------------------------------------------------------------------------------
-run.$inject = [];
-function run() {}
-
+run.$inject = ['Library'];
+function run(Library) {
+	window.L = Library;
+	//Library.loadData();
+}
 })();
