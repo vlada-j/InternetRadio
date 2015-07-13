@@ -51,7 +51,7 @@ function irPlayer(Player) {
 		vm.paused = false;
 		Player.setData = setData;
 		vm.selected = {};
-		vm.toggleClass = 'pause-state';
+		vm.toggleClass = 'pause';
 		vm.volume = audio.volume * 100;
 		vm.toggle = toggle;
 //		vm.getCurrentTime = function() { return audio.currentTime; };
@@ -64,11 +64,11 @@ function irPlayer(Player) {
 			if (audio.paused) {
 				audio.play();
 				vm.paused = false;
-				vm.toggleClass = 'pause-state';
+				vm.toggleClass = 'pause';
 			} else {
 				audio.pause();
 				vm.paused = true;
-				vm.toggleClass = 'play-state';
+				vm.toggleClass = 'play';
 			}
 		}
 

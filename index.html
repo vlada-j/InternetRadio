@@ -5,27 +5,22 @@
 	<title>Internet radio</title>
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body ng-app="InternetRadio" layout="column">
-	<md-toolbar class="md-warn">
-		<div class="md-toolbar-tools">
-			<h2 class="md-flex">Internet Radio</h2>
-		</div>
-	</md-toolbar>
-	<md-toolbar class="md-tall md-accent">
-			<ir-player></ir-player>
-	</md-toolbar>
-	<md-content layout-padding>
-		<div id="Library">
 
-			<ir-categories></ir-categories>
+	<ir-player id="Player"></ir-player>
 
-			<ir-list></ir-list>
+	<div id="Library">
 
-		</div>
-	</md-content>
+		<ir-categories></ir-categories>
+
+		<ir-list></ir-list>
+
+	</div>
+
 
 
 	<!-- SCRIPT -->

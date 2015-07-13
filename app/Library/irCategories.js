@@ -19,8 +19,9 @@ function irCategories(Library) {
 	};
 
 	function link(scope) {
+		scope.selected = '';
 		scope.tags = Library.getGenres();
-		scope.select = select;
+		scope.$watch('selected', select);
 	}
 
 	function select(s) {

@@ -4,14 +4,40 @@
 	margin: inherit;
 }
 
+#Player {
+	top:0;
+	left:0;
+	right:0;
+	height:100px;
+	position:fixed;
+	background-color:aliceblue;}
+.radio-player .md-fab {
+	float:left;
+	color:white;
+	font-size:20px;
+	line-height:1;
+	text-align:center;
+	vertical-align:middle;}
+.radio-player-title,
+.radio-player-subtitle {
+	display:block;
+	padding-left:80px;}
+.radio-player-title {
+	padding-top:10px;
+	line-height:30px;}
+.radio-player-subtitle {line-height:20px;}
 
-.radio-player {clear:both}
-.radio-player .radio-player-button {}
-.radio-player .pause-state {background-color:red}
-.radio-player .play-state {background-color:green}
+.radio-player-volume {
+	float:left;
+	clear:left;
+	width:300px;}
+
+.radio-player-tags {
+	padding-left:300px;
+	text-align:right}
 
 
-#Library {}
+#Library {margin-top:100px}
 
 .radio-categories {
 	float:left;

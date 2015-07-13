@@ -1,13 +1,15 @@
 <div class="radio-player">
 	<audio autoplay></audio>
-
-	<button class="radio-player-button {{vm.toggleClass}}" ng-click="vm.toggle()">||</button>
-	<input class="radio-player-volume" type="range" ng-model="vm.volume" min="0" max="100"/>
+	<md-button class="md-fab md-primary" ng-click="vm.toggle()">
+		<i class="fa fa-{{vm.toggleClass}}"></i>
+	</md-button>
 
 	<header class="radio-player-title">{{vm.selected.title}}</header>
+	<header class="radio-player-subtitle"><a href="{{vm.selected.url}}" target="_blank">{{vm.selected.url}}</a></header>
+
+	<md-slider min="0" max="100" ng-model="vm.volume" aria-label="grey" class="md-primary radio-player-volume"></md-slider>
 
 	<p class="radio-player-tags">
-		Tags:
 		<span class="tag" ng-repeat="tag in vm.selected.tags">{{tag}}</span>
 	</p>
 </div>
