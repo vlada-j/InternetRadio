@@ -1,3 +1,5 @@
 # InternetRadio
 
-Internet radio
+Simple demo with AngularJS
+
+Also check branch 'material_design'
