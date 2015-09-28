@@ -59,17 +59,25 @@ function irPlayer(Player) {
 		scope.$watch('vm.volume', function(n) {
 			audio.volume = n / 100;
 		});
+		
+		window.ononline = play;
+		window.onoffline = stop;
 
 		function toggle() {
-			if (audio.paused) {
-				audio.play();
-				vm.paused = false;
-				vm.toggleClass = 'pause';
-			} else {
-				audio.pause();
-				vm.paused = true;
-				vm.toggleClass = 'play';
-			}
+			if (audio.paused) { play(); }
+			else { stop(); }
+		}
+
+		function play() {
+			audio.play();
+			vm.paused = false;
+			vm.toggleClass = 'pause';
+		}
+
+		function stop() { 
+			audio.stop();
+			vm.paused = true;
+			vm.toggleClass = 'play';
 		}
 
 		function setData(s) {
