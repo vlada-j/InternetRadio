@@ -31,8 +31,8 @@ function run() {}
 
 
 //--------------------------------------------------------------------------------------------------
-irPlayer.$inject = ['Player'];
-function irPlayer(Player) {
+irPlayer.$inject = ['Player', '$timeout'];
+function irPlayer(Player, $timeout) {
 
 	return {
 		scope: {},
@@ -45,6 +45,7 @@ function irPlayer(Player) {
 
 	function link(scope, ele) {
 		var audio = ele.find('audio')[0],
+			onLine = navigator.onLine,
 			vm = {};
 
 		scope.vm = vm;
@@ -60,8 +61,15 @@ function irPlayer(Player) {
 			audio.volume = n / 100;
 		});
 		
-		window.ononline = play;
-		window.onoffline = stop;
+		$timeout(
+			function() {
+				console.log(navigator.onLine, onLine);
+				if (navigator.onLine != onLine) {
+					onLine = navigator.onLine;
+					if (onLine) { play(); }
+					else { stop(); }
+				}
+			}, 1000 );
 
 		function toggle() {
 			if (audio.paused) { play(); }
@@ -69,13 +77,14 @@ function irPlayer(Player) {
 		}
 
 		function play() {
-			audio.play();
+		//	audio.play();
+			audio.load();
 			vm.paused = false;
 			vm.toggleClass = 'pause';
 		}
 
 		function stop() { 
-			audio.stop();
+			audio.pause();
 			vm.paused = true;
 			vm.toggleClass = 'play';
 		}
