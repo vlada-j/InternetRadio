@@ -51,7 +51,16 @@ function irPlayer(Player, $timeout) {
 		scope.vm = vm;
 		vm.paused = false;
 		Player.setData = setData;
-		vm.selected = {};
+		vm.selected = {
+			src: "http://205.164.62.13:10152/;",
+			title: "Costa Del Mar - Chillout (1.FM)",
+			url: "http://www.costadelmar-radio.com/",
+			tags: [
+				"chill",
+				"lounge",
+				"easy listening"
+			]
+		};
 		vm.toggleClass = 'pause';
 		vm.volume = audio.volume * 100;
 		vm.toggle = toggle;
@@ -60,10 +69,11 @@ function irPlayer(Player, $timeout) {
 		scope.$watch('vm.volume', function(n) {
 			audio.volume = n / 100;
 		});
+
+		setData( vm.selected );
 		
 		$timeout(
 			function() {
-				console.log(navigator.onLine, onLine);
 				if (navigator.onLine != onLine) {
 					onLine = navigator.onLine;
 					if (onLine) { play(); }
