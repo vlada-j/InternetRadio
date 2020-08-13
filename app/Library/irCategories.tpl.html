@@ -1,6 +1,6 @@
 <div class="radio-categories">
-	<ul>
-		<li ng-click="select()">All</li>
-		<li ng-repeat="tag in tags" ng-click="select(tag)">{{tag}}</li>
-	</ul>
+	<md-radio-group ng-model="selected">
+		<md-radio-button ng-click="select()" value="" class="md-warn">All</md-radio-button>
+		<md-radio-button ng-repeat="tag in tags" ng-click="select(tag)" value="{{tag}}" class="md-warn">{{tag}}</md-radio-button>
+	</md-radio-group>
 </div>

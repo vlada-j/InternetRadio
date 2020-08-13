@@ -1,13 +1,84 @@
-.radio-player {clear:both}
-.radio-player .radio-player-button {}
-.radio-player .pause-state {background-color:red}
-.radio-player .play-state {background-color:green}
+.md-toolbar-tools h1 {
+	font-size: inherit;
+	font-weight: inherit;
+	margin: inherit;
+}
+
+#Player {
+	top:0;
+	left:0;
+	right:0;
+	z-index:3;
+	height:110px;
+	position:fixed;}
+.radio-player .md-button {
+	float:left;
+	color:white;
+	min-width:60px;
+	height:60px;
+	margin:0;
+	font-size:20px;
+	line-height:1;
+	text-align:center;
+	vertical-align:middle;
+	background-color:#FBC02D}
+.radio-player-title,
+.radio-player-subtitle {
+	display:block;
+	padding-left:70px;}
+.radio-player-title {
+	height:35px;
+	font-size:20px;
+	line-height:35px;
+	background-color:#FFEB3B}
+.radio-player-subtitle {
+	height:25px;
+	font-size:12px;
+	line-height:25px;
+	background-color:#FDD835}
+.radio-player-subtitle a {color:black}
+
+.radio-player-volume {
+	float:left;
+	clear:left;
+	width:300px;
+	margin:0;
+	padding:0 15px;}
+
+.radio-player-tags {
+	margin:0;
+	height:25px;
+	text-align:right;
+	padding:13px 10px 12px 310px;
+	background-color:#FFEE58}
+.radio-player-tags span {
+	margin:0 2px;
+	padding:0 3px;
+	line-height:25px;
+	display:inline-block;
+	background-color:#F9A825}
 
 
-#Library {}
+#Library {
+	top:110px;
+	left:0;
+	right:0;
+	bottom:0;
+	position:fixed;}
 
 .radio-categories {
-	float:left;
-	width:200px}
+	top:0;
+	left:0;
+	bottom:0;
+	width:240px;
+	overflow:auto;
+	position:absolute;
+	background-color:#ECEFF1}
 
-.radio-list {padding-left:200px}
+.radio-list {
+	top:0;
+	right:0;
+	bottom:0;
+	left:250px;
+	overflow:auto;
+	position:absolute;}

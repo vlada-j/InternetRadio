@@ -3,6 +3,7 @@
 
 angular
 .module('InternetRadio', [
+	'ngMaterial',
 	'InternetRadio.Player',
 	'InternetRadio.Library'
 ])

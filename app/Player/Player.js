@@ -31,8 +31,8 @@ function run() {}
 
 
 //--------------------------------------------------------------------------------------------------
-irPlayer.$inject = ['Player'];
-function irPlayer(Player) {
+irPlayer.$inject = ['Player', '$timeout'];
+function irPlayer(Player, $timeout) {
 
 	return {
 		scope: {},
@@ -45,13 +45,23 @@ function irPlayer(Player) {
 
 	function link(scope, ele) {
 		var audio = ele.find('audio')[0],
+			onLine = navigator.onLine,
 			vm = {};
 
 		scope.vm = vm;
 		vm.paused = false;
 		Player.setData = setData;
-		vm.selected = {};
-		vm.toggleClass = 'pause-state';
+		vm.selected = {
+			src: "http://205.164.62.13:10152/;",
+			title: "Costa Del Mar - Chillout (1.FM)",
+			url: "http://www.costadelmar-radio.com/",
+			tags: [
+				"chill",
+				"lounge",
+				"easy listening"
+			]
+		};
+		vm.toggleClass = 'pause';
 		vm.volume = audio.volume * 100;
 		vm.toggle = toggle;
 //		vm.getCurrentTime = function() { return audio.currentTime; };
@@ -60,16 +70,33 @@ function irPlayer(Player) {
 			audio.volume = n / 100;
 		});
 
+		setData( vm.selected );
+		
+		$timeout(
+			function() {
+				if (navigator.onLine != onLine) {
+					onLine = navigator.onLine;
+					if (onLine) { play(); }
+					else { stop(); }
+				}
+			}, 1000 );
+
 		function toggle() {
-			if (audio.paused) {
-				audio.play();
-				vm.paused = false;
-				vm.toggleClass = 'pause-state';
-			} else {
-				audio.pause();
-				vm.paused = true;
-				vm.toggleClass = 'play-state';
-			}
+			if (audio.paused) { play(); }
+			else { stop(); }
+		}
+
+		function play() {
+		//	audio.play();
+			audio.load();
+			vm.paused = false;
+			vm.toggleClass = 'pause';
+		}
+
+		function stop() { 
+			audio.pause();
+			vm.paused = true;
+			vm.toggleClass = 'play';
 		}
 
 		function setData(s) {

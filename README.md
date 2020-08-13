@@ -1,5 +1,3 @@
 # InternetRadio
 
-Simple demo with AngularJS
-
-Also check branch 'material_design' - https://github.com/vlada-j/InternetRadio/tree/material_design
+Simple demo with AngularJS and with Material design - angular_material 0.9.4
