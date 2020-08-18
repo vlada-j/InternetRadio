@@ -9,6 +9,12 @@ export default function () {
         link: 'https://quasar.dev'
       },
       {
+        title: 'Material Icons',
+        caption: 'material.io/resources/icons',
+        icon: 'eco',
+        link: 'https://material.io/resources/icons/?style=baseline'
+      },
+      {
         title: 'Github',
         caption: 'github.com/quasarframework',
         icon: 'code',

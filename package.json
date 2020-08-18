@@ -5,7 +5,7 @@
   "productName": "Internet radio",
   "author": "vlada-j <vladajanosevic@gmail.com>",
   "scripts": {
-    "dev": "quasar dev",
+    "dev": "quasar dev -o",
     "build": "quasar build"
   },
   "dependencies": {
